@@ -7,16 +7,22 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
+     *
      * Run the migrations.
      */
     public function up(): void
     {
+        // Backend Login Mahasiswa
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nim', 20)->unique();
+            $table->string('username', 50)->unique();
+            $table->string('fullname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('jurusan', 50)->nullable();
+            $table->year('angkatan')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
