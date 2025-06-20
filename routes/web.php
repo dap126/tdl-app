@@ -12,6 +12,10 @@ Route::middleware('auth')->group(function () {
         return view('input-tugas');
     })->name('input-tugas');
 
+    Route::get('/list-tugas', function () {
+        return view('list-tugas');
+    })->name('list-tugas');
+
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');

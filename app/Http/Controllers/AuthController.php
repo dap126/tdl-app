@@ -56,11 +56,10 @@ class AuthController extends Controller
     }
         public function dashboard()
     {
-        // Logika untuk mengambil data dashboard
-        return view('dashboard'); // Cukup return view kontennya
+        return view('dashboard'); 
     }
         public function profile()
     {
-        return view('profile'); // Cukup return view kontennya
+        return view('profile'); 
     }
 }

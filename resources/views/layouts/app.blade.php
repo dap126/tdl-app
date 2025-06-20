@@ -116,14 +116,6 @@
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
-            <!--begin::Fullscreen Toggle-->
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
-              </a>
-            </li>
-            <!--end::Fullscreen Toggle-->
             <!--begin::User Menu Dropdown-->
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -198,6 +190,12 @@
                 <a href="/" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="list-tugas" class="nav-link">
+                  <i class="nav-icon bi bi-calendar"></i>
+                  <p>Daftar Tugas</p>
                 </a>
               </li>
               <li class="nav-item">

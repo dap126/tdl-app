@@ -7,49 +7,46 @@
 @section('content')
   <div class="app-content">
     <!--begin::Container-->
-    <div class="container-fluid">
-      <!--begin::Row-->
-      <div class="row mt-3">
-        <!-- Start col -->
-        <div class="col-* connectedSortable mx-auto">
-          <div class="card mb-4">
-            <div class="card-header"><h3 class="card-title">Daftar Tugas</h3></div>
-            <div class="card-body">
-              <div>
-                <div class="container mt-4">
-                  <div class="table-responsive">
-                      <table class="table table-bordered table-hover">
-                          <thead>
-                              <tr>
-                                  <th>No</th>
-                                  <th>Judul Tugas</th>
-                                  <th>Mata Kuliah</th>
-                                  <th>Deskripsi Tugas</th>
-                                  <th>Deadline</th>
-                                  <th>Keterangan</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>-</td>
-                                  <td>-</td>
-                                  <td>-</td>
-                                  <td>-</td>
-                                  <td>-</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
+    <div class="row g-4 mx-auto mt-3">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="p-3 bg-primary bg-opacity-10 rounded-circle me-3">
+                        <i class="bi bi-card-checklist fs-4 text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="card-text text-muted mb-0">Total Tugas</p>
+                        <h4 class="card-title fw-bold">-</h4>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <!-- /.card -->
         </div>
-        <!-- /.Start col -->
-      </div>
-      <!-- /.row (main row) -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="p-3 bg-success bg-opacity-10 rounded-circle me-3">
+                        <i class="bi bi-check-circle-fill fs-4 text-success"></i>
+                    </div>
+                    <div>
+                        <p class="card-text text-muted mb-0">Tugas Selesai</p>
+                        <h4 class="card-title fw-bold">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="p-3 bg-warning bg-opacity-10 rounded-circle me-3">
+                        <i class="bi bi-fire fs-4 text-warning"></i>
+                    </div>
+                    <div>
+                        <p class="card-text text-muted mb-0">Tugas Aktif</p>
+                        <h4 class="card-title fw-bold">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--end::Container-->
   </div>
