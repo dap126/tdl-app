@@ -3,7 +3,7 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | Register Page</title>
+    <title>Register | TDL</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE 4 | Register Page" />
@@ -50,7 +50,7 @@
   <body class="register-page bg-body-secondary">
     <div class="register-box">
       <div class="register-logo">
-        <a href="../index2.html"><b>TDL</b>App</a>
+        <h2>To Do List | Register</h2>
       </div>
       <!-- /.register-logo -->
       <div class="card">
@@ -68,15 +68,15 @@
             </div>
             <div class="input-group mb-3">
               <input type="text" name="nim" class="form-control" placeholder="NIM" />
-              <div class="input-group-text"><span class="bi bi-person"></span></div>
+              <div class="input-group-text"><span class="bi bi-card-text"></span></div>
             </div>
             <div class="input-group mb-3">
               <input type="email" name="email" class="form-control" placeholder="Email" />
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" class="form-control" placeholder="Password" />
-              <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+              <div class="input-group-text"><span class="toggle-password bi bi-eye-slash" id="togglePassword"></span></div>
             </div>
             <div class="input-group mb-3">
               <input type="text" name="jurusan" class="form-control" placeholder="Jurusan" />
@@ -87,21 +87,22 @@
               <div class="input-group-text"><span class="bi bi-calendar"></span></div>
             </div>
             <!--begin::Row-->
-            <div class="row">
+            <div class="row d-flex justify-content-center">
               <!-- /.col -->
-              <div class="col-4">
+              <div class="col-4 pt-2">
                 <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <button type="submit" class="btn btn-primary">Register</button>
                 </div>
               </div>
               <!-- /.col -->
             </div>
             <!--end::Row-->
           </form>
-          <!-- /.social-auth-links -->
-          <p class="mb-0">
-            <br><br>
-            <a href="login" class="text-center"> I already have a membership </a>
+          <hr>
+          <p class="d-flex justify-content-around mb-0">
+            <a href="login"> Login</a>
+            ||
+            <a href="/"> Home</a>
           </p>
         </div>
         <!-- /.register-card-body -->
@@ -148,6 +149,18 @@
           });
         }
       });
+      const togglePassword = document.querySelector('#togglePassword');
+      const password = document.querySelector('#password');
+
+      togglePassword.addEventListener('click', function (e) {
+          // Toggle tipe input
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          
+          // Toggle kelas ikon
+          this.classList.toggle('bi-eye');
+          this.classList.toggle('bi-eye-slash');
+        });
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

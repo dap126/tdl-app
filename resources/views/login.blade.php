@@ -3,7 +3,7 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login | TDL App</title>
+    <title>Login | TDL</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE 4 | Login Page" />
@@ -50,37 +50,38 @@
   <body class="login-page bg-body-secondary">
     <div class="login-box">
       <div class="login-logo">
-        <h2>To Do List App</h2>
+        <h2>To Do List | Login</h2>
       </div>
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <form action="{{route ('login')}}" method="post">
+          <form action="{{route ('login')}}" method="post" class="px-3">
             @csrf
             <div class="input-group mb-3">
               <input type="text" name="username" class="form-control" placeholder="Username" />
               <div class="input-group-text"><span class="bi bi-person"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" class="form-control" placeholder="Password" />
-              <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+              <div class="input-group-text"><span class="toggle-password bi bi-eye-slash" id="togglePassword"></span></div>
             </div>
-            <div class="d-flex">
+            <div class="d-flex justify-content-center">
               <!-- /.col -->
-              <div class="col-4">
+              <div class="col-4 py-3">
                 <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <button type="submit" class="btn btn-primary">Login</button>
                 </div>
               </div>
               <!-- /.col -->
             </div>
             <!--end::Row-->
           </form>
-          <!-- /.social-auth-links -->
-          <br>
-          <p class="mb-0">
-            <a href="register" class="text-center"> Register a new membership </a>
+          <hr>
+          <p class="d-flex justify-content-around mb-0">
+            <a href="register" class=""> Register</a>
+            ||
+            <a href="/" class=""> Home </a>
           </p>
         </div>
         <!-- /.login-card-body -->
@@ -127,6 +128,18 @@
           });
         }
       });
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // Toggle tipe input
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle kelas ikon
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

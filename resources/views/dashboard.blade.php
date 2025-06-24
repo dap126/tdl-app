@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 {{-- Mengisi judul halaman (opsional, akan mengganti default) --}}
-@section('title')
+@section('title','Dashboard')
 
 @section('content')
   <div class="app-content">

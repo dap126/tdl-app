@@ -3,10 +3,10 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>@yield('title', 'To-Do List App')</title>
+    <title>@yield('title', 'To Do List')</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE v4 | Dashboard" />
+    <meta name="title" content="To Do List" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
@@ -161,7 +161,7 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
           <!--begin::Brand Link-->
-          <a href="#" class="brand-link">
+          <a href="/" class="brand-link">
             <!--begin::Brand Image-->
             <img
               src="img/AdminLTELogo.png"
@@ -170,7 +170,7 @@
             />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">To Do List App</span>
+            <span class="brand-text fw-light">To Do List</span>
             <!--end::Brand Text-->
           </a>
           <!--end::Brand Link-->
@@ -187,7 +187,7 @@
               data-accordion="false"
             >
               <li class="nav-item">
-                <a href="/" class="nav-link">
+                <a href="dashboard" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Dashboard</p>
                 </a>
@@ -200,7 +200,7 @@
               </li>
               <li class="nav-item">
                 <a href="input-tugas" class="nav-link">
-                  <i class="nav-icon bi bi-calendar"></i>
+                  <i class="nav-icon bi bi-send"></i>
                   <p>Input Tugas</p>
                 </a>
               </li>
@@ -220,7 +220,7 @@
       <footer class="app-footer">
         <!--begin::Copyright-->
         <strong>
-          Copyright &copy; 2014-2024&nbsp;
+          Copyright &copy; 2025&nbsp;
         </strong>
         All rights reserved.
         <!--end::Copyright-->
