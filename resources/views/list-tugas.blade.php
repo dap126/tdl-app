@@ -22,6 +22,7 @@
                               <th>Mata Kuliah</th>
                               <th>Deskripsi Tugas</th>
                               <th>Deadline</th>
+                              <th>Prioritas</th>
                               <th>Keterangan</th>
                           </tr>
                       </thead>
@@ -33,6 +34,13 @@
                               <td>-</td>
                               <td>-</td>
                               <td>-</td>
+                              <td>
+                                <select class="form-select" id="status" name="status" required>
+                                  <option value="Belum Selesai" selected>Belum Selesai</option>
+                                  <option value="Dikerjakan">Dikerjakan</option>
+                                  <option value="Selesai">Selesai</option>
+                                </select>
+                              </td>
                           </tr>
                       </tbody>
                   </table>

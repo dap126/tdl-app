@@ -27,8 +27,8 @@
                             <select class="form-select" id="daftar_id" name="daftar_id" required>
                                 <option value="" disabled>-- Pilih Kategori/Daftar --</option>
                                 <!-- INI ADALAH CONTOH DATA STATIS -->
-                                <option value="1">Tugas Kuliah</option>
-                                <option value="2" selected>Kegiatan Organisasi</option>
+                                <option value="1" selected>Tugas Kuliah</option>
+                                <option value="2">Kegiatan Organisasi</option>
                                 <option value="3">Pribadi</option>
                             </select>
                         </div>
@@ -51,8 +51,8 @@
                         
                         <!-- Deadline -->
                         <div class="mb-3">
-                            <label for="tgl_deadline" class="form-label">Deadline</label>
-                            <input type="datetime-local" class="form-control" id="tgl_deadline" name="tgl_deadline" value="" require>
+                            <label for="tanggal_deadline" class="form-label">Deadline</label>
+                            <input type="datetime-local" class="form-control" id="tanggal_deadline" name="tanggal_deadline" value="" require>
                         </div>
                         
                         <!-- Prioritas -->

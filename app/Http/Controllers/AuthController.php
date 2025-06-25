@@ -44,7 +44,7 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect('/');
         }
-        return redirect('login')->with('error', 'Email/Password salah! Mohon periksa kembali.');
+        return redirect('login')->with('error', 'Username/Password salah! Mohon periksa kembali.');
     }
         public function logout(Request $request): RedirectResponse
     {

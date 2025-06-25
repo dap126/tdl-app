@@ -44,6 +44,13 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <style>
+      input[type=number]::-webkit-outer-spin-button,
+      input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    </style>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -55,35 +62,45 @@
       <!-- /.register-logo -->
       <div class="card">
           <div class="card-body register-card-body">
-          <p class="register-box-msg">Register a new membership</p>
+          @if($errors->any())
+            <div class="bg-danger-subtle border rounded mx-auto my-2 pt-3 px-4">
+              <ul class="list-disc pl-5 text-sm">
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+            </div>
+          @endif
+
+          <p class="register-box-msg">Register to To Do List</p>
           <form action="{{route ('register')}}" method="post">
             @csrf
             <div class="input-group mb-3">
-              <input type="text" name="fullname" class="form-control" placeholder="Full Name" />
+              <input type="text" name="fullname" class="form-control" placeholder="Full Name"/>
               <div class="input-group-text"><span class="bi bi-person"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="text" name="username" class="form-control" placeholder="User Name" />
+              <input type="text" name="username" class="form-control" placeholder="User Name"/>
               <div class="input-group-text"><span class="bi bi-person"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="text" name="nim" class="form-control" placeholder="NIM" />
+              <input type="number" name="nim" class="form-control" placeholder="NIM" oninput="batasiDigit(this, 10)"/>
               <div class="input-group-text"><span class="bi bi-card-text"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="email" name="email" class="form-control" placeholder="Email" />
+              <input type="email" name="email" class="form-control" placeholder="Email"/>
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
               <div class="input-group-text"><span class="toggle-password bi bi-eye-slash" id="togglePassword"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="text" name="jurusan" class="form-control" placeholder="Jurusan" />
+              <input type="text" name="jurusan" class="form-control" placeholder="Jurusan"/>
               <div class="input-group-text"><span class="bi bi-laptop"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="text" name="angkatan" class="form-control" placeholder="Tahun Angkatan" />
+              <input type="number" name="angkatan" class="form-control" placeholder="Tahun Angkatan" oninput="batasiDigit(this, 4)"/>
               <div class="input-group-text"><span class="bi bi-calendar"></span></div>
             </div>
             <!--begin::Row-->
@@ -161,6 +178,11 @@
           this.classList.toggle('bi-eye');
           this.classList.toggle('bi-eye-slash');
         });
+      function batasiDigit(input, maxLength) {
+          if (input.value.length > maxLength) {
+              input.value = input.value.slice(0, maxLength);
+            }
+        };
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

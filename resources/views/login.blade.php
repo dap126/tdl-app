@@ -55,15 +55,21 @@
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
+          @if(session('error'))
+            <div class="d-flex text-center rounded bg-danger-subtle px-5 py-3" role="alert">
+              <span class="ml-2">{{ session('error') }}</span>
+            </div>
+            <br>
+          @endif
           <p class="login-box-msg">Sign in to start your session</p>
           <form action="{{route ('login')}}" method="post" class="px-3">
             @csrf
             <div class="input-group mb-3">
-              <input type="text" name="username" class="form-control" placeholder="Username" />
+              <input type="text" name="username" class="form-control" placeholder="Username" required/>
               <div class="input-group-text"><span class="bi bi-person"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
               <div class="input-group-text"><span class="toggle-password bi bi-eye-slash" id="togglePassword"></span></div>
             </div>
             <div class="d-flex justify-content-center">
