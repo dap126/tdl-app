@@ -3,6 +3,11 @@
 @section('title','Daftar Tugas')
 
 @section('content')
+<style>
+  .nomor {
+    text-align: center;
+  }
+</style>
 <div class="container-fluid">
   <!--begin::Row-->
   <div class="row mt-4">
@@ -14,9 +19,9 @@
           <div>
             <div class="container mt-4">
               <div class="table-responsive">
-                  <table class="table table-bordered table-hover">
+                  <table class="table table-bordered">
                       <thead>
-                          <tr>
+                          <tr class="text-center">
                               <th>No</th>
                               <th>Judul Tugas</th>
                               <th>Mata Kuliah</th>
@@ -28,7 +33,7 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td>1</td>
+                              <td class="nomor">1</td>
                               <td>-</td>
                               <td>-</td>
                               <td>-</td>
