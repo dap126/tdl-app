@@ -1,6 +1,6 @@
 @extends('layouts.app') {{-- Sesuaikan dengan nama layout utama Anda --}}
 
-@section('title', 'Dashboard')
+@section('title', 'Daftar Tugas')
 
 @section('content')
 <div class="container-fluid">
