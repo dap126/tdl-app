@@ -42,7 +42,7 @@
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="css/adminlte.css" />
+    <link rel="stylesheet" href="{{ asset('css/adminlte.css') }}" />
     <!--end::Required Plugin(AdminLTE)-->
     <!-- apexcharts -->
     <link
@@ -164,7 +164,7 @@
           <a href="/" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="img/AdminLTELogo.png"
+              src="{{ asset('img/AdminLTELogo.png') }}"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
@@ -187,19 +187,19 @@
               data-accordion="false"
             >
               <li class="nav-item">
-                <a href="dashboard" class="nav-link">
+                <a href="{{ route ('dashboard') }}" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="list-tugas" class="nav-link">
+                <a href="{{ route ('list-tugas') }}" class="nav-link">
                   <i class="nav-icon bi bi-calendar"></i>
                   <p>Daftar Tugas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="input-tugas" class="nav-link">
+                <a href="{{ route ('input-tugas') }}" class="nav-link">
                   <i class="nav-icon bi bi-send"></i>
                   <p>Input Tugas</p>
                 </a>

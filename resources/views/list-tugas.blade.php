@@ -14,7 +14,6 @@
 
     <!--begin::Row-->
     <div class="row mt-4">
-        {{-- Loop melalui setiap TEMPLATE DAFTAR TUGAS (Tugas Kuliah, Organisasi, dll.) --}}
         @forelse ($daftarTugas as $daftar)
             <div class="col-12 mb-4">
                 <div class="card shadow-sm">
@@ -70,12 +69,16 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <a href="#" class="btn btn-sm btn-outline-primary" title="Edit Tugas">
+                                                <a href="{{ route('tugas.edit', $tugas->tugas_id) }}" class="btn btn-sm btn-outline-primary" title="Edit Tugas">
                                                     <i class="bi bi-pencil-fill"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-sm btn-outline-danger" title="Hapus Tugas">
-                                                    <i class="bi bi-trash-fill"></i>
-                                                </a>
+                                                <form action="{{ route('tugas.destroy', $tugas->tugas_id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus tugas ini?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus Tugas">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty

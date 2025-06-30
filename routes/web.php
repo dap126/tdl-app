@@ -5,25 +5,19 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TugasController;
 
 Route::middleware('auth')->group(function () {
+    Route::get('/input-tugas', [TugasController::class, 'create'])->name('input-tugas');
+    Route::post('/input-tugas', [TugasController::class, 'store'])->name('tugas.store');
+    Route::resource('tugas', TugasController::class)->except(['show', 'create', 'store']);
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    Route::get('/input-tugas', function () {
-        return view('input-tugas');
-    })->name('input-tugas');
 
     Route::get('/list-tugas', [TugasController::class, 'index'])->name('list-tugas');
 
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
-
-    Route::get('input-tugas', [TugasController::class, 'create'])
-        ->name('tugas.create');
-    
-    Route::post('list-tugas', [TugasController::class, 'store'])
-        ->name('tugas.store');
 });
 
 Route::middleware('guest')->group(function () {

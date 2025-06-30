@@ -61,4 +61,51 @@ class TugasController extends Controller
 
         return redirect()->route('list-tugas')->with('success', 'Tugas baru berhasil ditambahkan!');
     }
+    public function edit($id)
+    {
+        $tugas = Tugas::findOrFail($id);
+        $daftarTugas = DaftarTugas::all();
+        $mataKuliah = MataKuliah::all();
+        return view('edit-tugas', compact('tugas', 'daftarTugas', 'mataKuliah'));
+    }
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'judul_tugas' => 'required|string',
+            'daftar_id' => 'required|exists:daftar_tugas,daftar_id',
+            'nama_matakuliah' => 'nullable|string|max:100',
+            'deskripsi_tugas' => 'nullable|string',
+            'tanggal_deadline' => 'nullable|date',
+            'prioritas' => 'required|in:Rendah,Sedang,Tinggi',
+        ]);
+
+        $tugas = Tugas::findOrFail($id);
+
+        $matakuliahId = null;
+        if ($request->filled('nama_matakuliah')) {
+            $mataKuliah = MataKuliah::firstOrCreate(
+                ['nama_matakuliah' => $request->nama_matakuliah],
+                ['sks' => 3]
+            );
+            $matakuliahId = $mataKuliah->matkul_id;
+        }
+
+        $tugas->update([
+            'judul_tugas' => $validatedData['judul_tugas'],
+            'daftar_id' => $validatedData['daftar_id'],
+            'matkul_id' => $matakuliahId,
+            'deskripsi_tugas' => $validatedData['deskripsi_tugas'],
+            'tanggal_deadline' => $validatedData['tanggal_deadline'],
+            'prioritas' => $validatedData['prioritas'],
+        ]);
+
+        return redirect()->route('list-tugas')->with('success', 'Tugas berhasil diupdate!');
+    }
+
+    public function destroy($id)
+    {
+        $tugas = Tugas::findOrFail($id);
+        $tugas->delete();
+        return redirect()->route('list-tugas')->with('success', 'Tugas berhasil dihapus!');
+    }
 }
