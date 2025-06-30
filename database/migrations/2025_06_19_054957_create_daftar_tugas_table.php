@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('daftar_tugas', function (Blueprint $table) {
             $table->id('daftar_id');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_daftar', 100);
             $table->text('deskripsi')->nullable();
             $table->timestamps();

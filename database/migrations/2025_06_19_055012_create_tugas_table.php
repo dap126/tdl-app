@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tugas', function (Blueprint $table) {
             $table->id('tugas_id');
             $table->foreignId('daftar_id')->constrained('daftar_tugas', 'daftar_id')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('matkul_id')
                   ->nullable()
                   ->constrained('mata_kuliah', 'matkul_id')

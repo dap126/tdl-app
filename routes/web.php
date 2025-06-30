@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TugasController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -12,13 +13,17 @@ Route::middleware('auth')->group(function () {
         return view('input-tugas');
     })->name('input-tugas');
 
-    Route::get('/list-tugas', function () {
-        return view('list-tugas');
-    })->name('list-tugas');
+    Route::get('/list-tugas', [TugasController::class, 'index'])->name('list-tugas');
 
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
+
+    Route::get('input-tugas', [TugasController::class, 'create'])
+        ->name('tugas.create');
+    
+    Route::post('list-tugas', [TugasController::class, 'store'])
+        ->name('tugas.store');
 });
 
 Route::middleware('guest')->group(function () {

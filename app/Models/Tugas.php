@@ -13,7 +13,7 @@ class Tugas extends Model
     protected $table = 'tugas';
     protected $fillable = [
         'daftar_id', 'matkul_id', 'judul_tugas', 'deskripsi_tugas',
-        'tanggal_deadline', 'prioritas', 'status', 'completed_at'
+        'tanggal_deadline', 'prioritas', 'status', 'completed_at', 'user_id'
     ];
 
     /**

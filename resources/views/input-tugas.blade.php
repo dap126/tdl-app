@@ -12,61 +12,70 @@
                 <div class="card-header"><h3 class="card-title">Form Tambah Tugas Baru</h3></div>
                 <div class="card-body">
                     
-                    <!-- Atribut action diubah menjadi '#' karena ini hanya tampilan -->
-                    <form action="#" method="POST">
-                        <!-- Judul Tugas -->
+                    <form action="{{ route('tugas.store') }}" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="judul_tugas" class="form-label">Judul Tugas</label>
-                            <input type="text" class="form-control" id="judul_tugas" name="judul_tugas" value="" required>
-                            <!-- Contoh pesan error -->
-                            <!-- div class="invalid-feedback">Judul tugas wajib diisi.</div -->
+                            <input type="text" class="form-control @error('judul_tugas') is-invalid @enderror" id="judul_tugas" name="judul_tugas" value="{{ old('judul_tugas') }}" required>
+                            @error('judul_tugas')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <!-- Pilih Daftar Tugas -->
                         <div class="mb-3">
                             <label for="daftar_id" class="form-label">Pilih Daftar Tugas</label>
-                            <select class="form-select" id="daftar_id" name="daftar_id" required>
+                            <select class="form-select @error('daftar_id') is-invalid @enderror" id="daftar_id" name="daftar_id" required>
                                 <option value="" disabled>-- Pilih Kategori/Daftar --</option>
-                                <!-- INI ADALAH CONTOH DATA STATIS -->
-                                <option value="1" selected>Tugas Kuliah</option>
-                                <option value="2">Kegiatan Organisasi</option>
-                                <option value="3">Pribadi</option>
+                                @foreach ($daftarTugas as $daftar)
+                                    <option value="{{ $daftar->daftar_id }}" {{ old('daftar_id') == $daftar->daftar_id ? 'selected' : '' }}>
+                                        {{ $daftar->nama_daftar }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <!-- Pilih Mata Kuliah -->
                         <div class="mb-3">
-                            <label for="matkul_id" class="form-label">Mata Kuliah</label>
-                            <select class="form-select" id="matkul_id" name="matkul_id">
-                                <option value="">-- Tidak ada --</option>
-                                <!-- INI ADALAH CONTOH DATA STATIS -->
-                                <option value="101">Dasar Pemrograman</option>
-                                <option value="102">Basis Data</option>
-                                <option value="103">Jaringan Komputer</option>
-                            </select>
+                            <label for="nama_matakuliah" class="form-label">Mata Kuliah <span class="text-muted">(Opsional)</span></label>
+                            <input type="text" 
+                                   class="form-control @error('nama_matakuliah') is-invalid @enderror" 
+                                   id="nama_matakuliah" 
+                                   name="nama_matakuliah" 
+                                   value="{{ old('nama_matakuliah') }}"
+                                   placeholder="Ketik nama mata kuliah jika ada">
+                            @error('nama_matakuliah')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <!-- Deskripsi Tugas -->
                         <div class="mb-3">
                             <label for="deskripsi_tugas" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi_tugas" name="deskripsi_tugas" rows="3"></textarea>
+                            <textarea class="form-control @error('deskripsi_tugas') is-invalid @enderror" id="deskripsi_tugas" name="deskripsi_tugas" rows="3">{{ old('deskripsi_tugas') }}</textarea>
+                             @error('deskripsi_tugas')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         
                         <!-- Deadline -->
                         <div class="mb-3">
-                            <label for="tanggal_deadline" class="form-label">Deadline</label>
-                            <input type="datetime-local" class="form-control" id="tanggal_deadline" name="tanggal_deadline" value="" require>
+                            <label for="tanggal_deadline" class="form-label">Deadline (Opsional)</label>
+                            <input type="datetime-local" class="form-control @error('tanggal_deadline') is-invalid @enderror" id="tanggal_deadline" name="tanggal_deadline" value="{{ old('tanggal_deadline') }}">
+                             @error('tanggal_deadline')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         
                         <!-- Prioritas -->
                         <div class="mb-3">
                             <label for="prioritas" class="form-label">Prioritas</label>
-                            <select class="form-select" id="prioritas" name="prioritas" required>
-                                <option value="Rendah">Rendah</option>
-                                <option value="Sedang" selected>Sedang</option>
-                                <option value="Tinggi">Tinggi</option>
+                            <select class="form-select @error('prioritas') is-invalid @enderror" id="prioritas" name="prioritas" required>
+                                <option value="Rendah" {{ old('prioritas') == 'Rendah' ? 'selected' : '' }}>Rendah</option>
+                                <option value="Sedang" {{ old('prioritas', 'Sedang') == 'Sedang' ? 'selected' : '' }}>Sedang</option>
+                                <option value="Tinggi" {{ old('prioritas') == 'Tinggi' ? 'selected' : '' }}>Tinggi</option>
                             </select>
                         </div>
                         <div class="d-flex justify-content-end">
                             <!-- Link href diubah menjadi '#' karena ini hanya tampilan -->
-                            <a href="#" class="btn btn-secondary me-2">Batal</a>
+                            <a href="{{ route('dashboard') }}" class="btn btn-secondary me-2">Batal</a>
                             <button type="submit" class="btn btn-primary">Simpan Tugas</button>
                         </div>
                     </form>
