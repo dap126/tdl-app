@@ -70,6 +70,13 @@ class TugasController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $tugas = Tugas::findOrFail($id);
+        
+        if ($request->has('status') && count($request->all()) == 3) { // _token, _method, status
+            $tugas->update(['status' => $request->status]);
+            return redirect()->route('list-tugas')->with('success', 'Status tugas berhasil diupdate!');
+        }
+
         $validatedData = $request->validate([
             'judul_tugas' => 'required|string',
             'daftar_id' => 'required|exists:daftar_tugas,daftar_id',
@@ -78,9 +85,6 @@ class TugasController extends Controller
             'tanggal_deadline' => 'nullable|date',
             'prioritas' => 'required|in:Rendah,Sedang,Tinggi',
         ]);
-
-        $tugas = Tugas::findOrFail($id);
-
         $matakuliahId = null;
         if ($request->filled('nama_matakuliah')) {
             $mataKuliah = MataKuliah::firstOrCreate(
@@ -89,7 +93,6 @@ class TugasController extends Controller
             );
             $matakuliahId = $mataKuliah->matkul_id;
         }
-
         $tugas->update([
             'judul_tugas' => $validatedData['judul_tugas'],
             'daftar_id' => $validatedData['daftar_id'],
@@ -98,7 +101,6 @@ class TugasController extends Controller
             'tanggal_deadline' => $validatedData['tanggal_deadline'],
             'prioritas' => $validatedData['prioritas'],
         ]);
-
         return redirect()->route('list-tugas')->with('success', 'Tugas berhasil diupdate!');
     }
 

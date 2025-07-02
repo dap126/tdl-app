@@ -3,15 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TugasController;
+use App\Http\Controllers\DashboardController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/input-tugas', [TugasController::class, 'create'])->name('input-tugas');
     Route::post('/input-tugas', [TugasController::class, 'store'])->name('tugas.store');
     Route::resource('tugas', TugasController::class)->except(['show', 'create', 'store']);
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/list-tugas', [TugasController::class, 'index'])->name('list-tugas');
 

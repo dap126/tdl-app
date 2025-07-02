@@ -14,36 +14,44 @@
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-	      <div class="navbar-nav">
-	        <a class="nav-link active" aria-current="page" href="#">Home</a>
-	        <a class="nav-link" href="#">Features</a>
-	        <a class="nav-link" href="#">Pricing</a>
-	        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+      |
+	    <div class="collapse navbar-collapse ms-2" id="navbarNavAltMarkup">
+	      <div class="navbar-nav me-auto">
+	        <a class="nav-link" href="#home">Beranda</a>
+          <a class="nav-link" href="#about">Tentang</a>
+	      </div>
+	      <div class="d-flex">
+	        <a href="{{ route('login') }}" class="btn btn-primary me-2">Login</a>
+	        <a href="{{ route('register') }}" class="btn btn-outline-light">Register</a>
 	      </div>
 	    </div>
 	  </div>
 	</nav>
 
     <main class="flex-grow-1 d-flex align-items-center justify-content-center">
-        <div class="container text-center">
-            <div class="card p-4 p-md-5 shadow-lg custom-card">
-                <div class="card-body">
-                    <h1 class="display-4 fw-bold">Selamat Datang!</h1>
-					<br>
-                    <p class="lead my-4">
-                        Platform kami siap membantu Anda. Silakan masuk untuk melanjutkan atau daftar jika Anda pengguna baru.
-                    </p>
-					<br>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a href="login" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
-                        <a href="register" class="btn btn-outline-secondary btn-lg px-4">Register</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container mt-5">
+        <div class="row align-items-center">
+          <!-- Section Kiri: Penjelasan -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h1 class="display-4">Selamat Datang di Aplikasi To Do List</h1>
+            <p class="lead">Aplikasi To Do List membantu Anda mengelola, memantau, dan menyelesaikan tugas-tugas harian dengan mudah dan efisien. Tambahkan, edit, dan hapus tugas sesuai kebutuhan Anda. Dapatkan pengalaman produktivitas yang lebih baik dengan fitur prioritas, deadline, dan kategori tugas.</p>
+            <ul>
+              <li>Tambah dan kelola tugas harian</li>
+              <li>Kategorikan tugas sesuai kebutuhan</li>
+              <li>Atur prioritas dan deadline</li>
+              <li>Antarmuka modern dan responsif</li>
+            </ul>
+          </div>
+          <!-- Section Kanan: Gambar -->
+          <div class="col-md-6 text-center">
+            <img src="https://blog.cakap.com/wp-content/uploads/2023/04/to-do-list-artinya.jpg" alt="Ilustrasi To Do List" class="img-fluid rounded shadow">
+          </div>
+          <div class="col-12 text-center mt-5 mb-5">
+            <a href="{{ route('login') }}" class="btn btn-primary btn-lg mt-3">Mulai Sekarang</a>
+          </div>
         </div>
+      </div>
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

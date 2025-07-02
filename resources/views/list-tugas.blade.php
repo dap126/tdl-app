@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0">
+                            <table class="table mb-0">
                                 <thead>
                                     <tr class="table-light">
                                         <th style="width: 5%;">No</th>
@@ -63,15 +63,17 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge rounded-pill 
-                                                    {{ $tugas->status == 'Selesai' ? 'bg-success' : ($tugas->status == 'Dikerjakan' ? 'bg-primary' : 'bg-secondary') }}">
-                                                    {{ $tugas->status }}
-                                                </span>
+                                                <form action="{{ route('tugas.update', $tugas->tugas_id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <select name="status" class="form-select form-select-sm me-2" style="width:auto;" onchange="this.form.submit()">
+                                                        <option value="Belum Selesai" {{ $tugas->status == 'Belum Selesai' ? 'selected' : '' }}>Belum Selesai</option>
+                                                        <option value="Dikerjakan" {{ $tugas->status == 'Dikerjakan' ? 'selected' : '' }}>Dikerjakan</option>
+                                                        <option value="Selesai" {{ $tugas->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                                                    </select>
+                                                </form>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('tugas.edit', $tugas->tugas_id) }}" class="btn btn-sm btn-outline-primary" title="Edit Tugas">
-                                                    <i class="bi bi-pencil-fill"></i>
-                                                </a>
                                                 <form action="{{ route('tugas.destroy', $tugas->tugas_id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus tugas ini?');">
                                                     @csrf
                                                     @method('DELETE')

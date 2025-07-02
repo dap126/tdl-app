@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <p class="card-text text-muted mb-0">Total Tugas</p>
-                        <h4 class="card-title fw-bold">-</h4>
+                        <h4 class="card-title fw-bold">{{ $totalTugas }}</h4>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div>
                         <p class="card-text text-muted mb-0">Tugas Selesai</p>
-                        <h4 class="card-title fw-bold">-</h4>
+                        <h4 class="card-title fw-bold">{{ $tugasSelesai }}</h4>
                     </div>
                 </div>
             </div>
@@ -42,12 +42,19 @@
                     </div>
                     <div>
                         <p class="card-text text-muted mb-0">Tugas Aktif</p>
-                        <h4 class="card-title fw-bold">-</h4>
+                        <h4 class="card-title fw-bold">{{ $tugasAktif }}</h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--end::Container-->
+    <div class="card mt-4 mx-2 shadow-sm">
+        <div class="card-header">
+            <h3 class="card-title">Grafik Keaktifan</h3>
+            <div class="card-body text-center text-muted">
+                <em>Grafik keaktifan dinonaktifkan.</em>
+            </div>
+        </div>
+    </div>
   </div>
 @endsection
