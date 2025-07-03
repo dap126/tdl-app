@@ -7,7 +7,7 @@
     <!--begin::Row-->
     <div class="row mt-4">
         <!-- Start col -->
-        <div class="col-* mx-auto"> <!-- Menggunakan col-lg-8 agar tidak terlalu lebar -->
+        <div class="col-* mx-auto">
             <div class="card mb-4 shadow-sm">
                 <div class="card-header"><h3 class="card-title">Form Tambah Tugas Baru</h3></div>
                 <div class="card-body">
@@ -48,7 +48,7 @@
                         </div>
                         <!-- Deskripsi Tugas -->
                         <div class="mb-3">
-                            <label for="deskripsi_tugas" class="form-label">Deskripsi</label>
+                            <label for="deskripsi_tugas" class="form-label">Deskripsi <span class="text-muted">(Opsional)</span></label>
                             <textarea class="form-control @error('deskripsi_tugas') is-invalid @enderror" id="deskripsi_tugas" name="deskripsi_tugas" rows="3">{{ old('deskripsi_tugas') }}</textarea>
                              @error('deskripsi_tugas')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -57,7 +57,7 @@
                         
                         <!-- Deadline -->
                         <div class="mb-3">
-                            <label for="tanggal_deadline" class="form-label">Deadline (Opsional)</label>
+                            <label for="tanggal_deadline" class="form-label">Deadline <span class="text-muted">(Opsional)</span></label>
                             <input type="datetime-local" class="form-control @error('tanggal_deadline') is-invalid @enderror" id="tanggal_deadline" name="tanggal_deadline" value="{{ old('tanggal_deadline') }}">
                              @error('tanggal_deadline')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -74,7 +74,6 @@
                             </select>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <!-- Link href diubah menjadi '#' karena ini hanya tampilan -->
                             <a href="{{ route('dashboard') }}" class="btn btn-secondary me-2">Batal</a>
                             <button type="submit" class="btn btn-primary">Simpan Tugas</button>
                         </div>

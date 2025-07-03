@@ -35,13 +35,13 @@
       <section class="bg-light py-5" id="home">
         <div class="container">
           <div class="row align-items-center">
-            <!-- Section Kiri: Penjelasan -->
+            <!-- Section Kiri -->
             <div class="col-md-6 mb-4 mb-md-0">
               <h1 class="display-4 fw-bold mb-3">Selamat Datang di <span class="text-primary">Aplikasi To Do List</span></h1>
               <p class="lead mb-4">Aplikasi To Do List membantu Anda mengelola, memantau, dan menyelesaikan tugas-tugas harian dengan mudah dan efisien. Tambahkan, edit, dan hapus tugas sesuai kebutuhan Anda. Dapatkan pengalaman produktivitas yang lebih baik dengan fitur prioritas, deadline, dan kategori tugas.</p>
-              <!-- Fitur list di beranda dihapus sesuai permintaan, cukup deskripsi saja -->
+              <p class="mb-4">Dengan antarmuka yang sederhana dan intuitif, Anda dapat fokus pada apa yang penting. Aplikasi ini dirancang untuk membantu Anda tetap terorganisir dan meningkatkan efisiensi kerja Anda.</p>
             </div>
-            <!-- Section Kanan: Gambar -->
+            <!-- Section Kanan -->
             <div class="col-md-6 text-center">
               <img src="https://blog.cakap.com/wp-content/uploads/2023/04/to-do-list-artinya.jpg" alt="Ilustrasi To Do List" class="img-fluid rounded-4 shadow-lg" style="max-height:340px; object-fit:cover;">
             </div>

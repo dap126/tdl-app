@@ -35,8 +35,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- Loop melalui setiap TUGAS di dalam daftar ini --}}
-                                    {{-- Hanya tugas milik user yang login yang akan muncul --}}
                                     @forelse ($daftar->tugas as $tugas)
                                         <tr class="{{ $tugas->status == 'Selesai' ? 'table-success' : '' }}">
                                             <td>{{ $loop->iteration }}</td>
@@ -98,7 +96,6 @@
                 </div>
             </div>
         @empty
-            {{-- Pesan ini muncul jika tidak ada template daftar tugas sama sekali --}}
             <div class="col-12">
                 <div class="alert alert-warning text-center">
                     Tidak ada kategori tugas yang tersedia. Silakan hubungi admin.
