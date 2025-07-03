@@ -14,10 +14,8 @@ class DaftarTugasTemplateSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        \App\Models\Tugas::truncate();
-        DaftarTugas::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        DB::statement('TRUNCATE TABLE tugas RESTART IDENTITY CASCADE;');
+        DB::statement('TRUNCATE TABLE daftar_tugas RESTART IDENTITY CASCADE;');
 
         DaftarTugas::create(['nama_daftar' => 'Tugas Kuliah', 'deskripsi' => 'Semua tugas yang berhubungan dengan perkuliahan.']);
         DaftarTugas::create(['nama_daftar' => 'Organisasi', 'deskripsi' => 'Aktivitas dan tanggung jawab di organisasi kemahasiswaan.']);
