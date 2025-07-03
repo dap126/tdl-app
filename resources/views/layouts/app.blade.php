@@ -65,18 +65,17 @@
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
       <!--begin::Header-->
-      <nav class="app-header navbar navbar-expand bg-body">
+      <nav class="app-header navbar navbar-expand bg-body" id="main-navbar">
         <!--begin::Container-->
         <div class="container-fluid">
           <!--begin::Start Navbar Links-->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <a class="nav-link" id="sidebar-toggle-btn" data-lte-toggle="sidebar" href="#" role="button">
                 <i class="bi bi-list"></i>
               </a>
             </li>
-            <li class="nav-item d-none d-md-block"><a href="profile" class="nav-link">Profil</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item d-none d-md-block"><a href="{{ route('profile') }}" class="nav-link">Profil</a></li>
           </ul>
           <!--end::Start Navbar Links-->
           <!--begin::End Navbar Links-->
@@ -94,14 +93,11 @@
                 <i class="bi bi-bell-fill"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <span class="dropdown-item dropdown-header">Notifikasi</span>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 new messages
-                  <span class="float-end text-secondary fs-7">3 mins</span>
+                <a href="#" class="dropdown-item text-muted text-center">
+                  Tidak ada notifikasi ditemukan
                 </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
@@ -150,17 +146,8 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
           <!--begin::Brand Link-->
-          <a href="/" class="brand-link">
-            <!--begin::Brand Image-->
-            <img
-              src="{{ asset('img/AdminLTELogo.png') }}"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
-            <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">To Do List</span>
-            <!--end::Brand Text-->
+          <a class="navbar-brand text-light fw-bold d-flex align-items-center gap-2" href="">
+            <i class="bi bi-check2-square fs-3"></i> To Do List
           </a>
           <!--end::Brand Link-->
         </div>
@@ -209,9 +196,9 @@
       <footer class="app-footer">
         <!--begin::Copyright-->
         <strong>
-          Copyright &copy; 2025&nbsp;
+          &copy; 2025&nbsp;
         </strong>
-        All rights reserved.
+        Kelompok 2 Pemweb.
         <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
@@ -464,6 +451,45 @@
 
       const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
       sparkline3.render();
+    </script>
+    <style>
+      /* Sidebar shrink effect */
+      .app-sidebar.shrink-sidebar {
+        width: 60px !important;
+        min-width: 60px !important;
+        max-width: 60px !important;
+        transition: width 0.3s, min-width 0.3s, max-width 0.3s;
+        overflow-x: hidden;
+      }
+      .app-sidebar.shrink-sidebar .sidebar-brand .brand-text,
+      .app-sidebar.shrink-sidebar .sidebar-menu p,
+      .app-sidebar.shrink-sidebar .sidebar-menu .nav-link span,
+      .app-sidebar.shrink-sidebar .sidebar-menu .nav-link .nav-text {
+        display: none !important;
+      }
+      .app-sidebar.shrink-sidebar .brand-image {
+        margin: 0 auto;
+        display: block;
+      }
+      .app-sidebar.shrink-sidebar .sidebar-menu .nav-link {
+        justify-content: center;
+      }
+      .app-sidebar.shrink-sidebar .nav-icon {
+        font-size: 1.5rem;
+      }
+    </style>
+    <script>
+      // Sidebar: Shrink sidebar horizontally when sidebar toggle is clicked
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+        const sidebar = document.querySelector('.app-sidebar');
+        if (sidebarToggleBtn && sidebar) {
+          sidebarToggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            sidebar.classList.toggle('shrink-sidebar');
+          });
+        }
+      });
     </script>
     @stack('scripts')
     <!--end::Script-->
